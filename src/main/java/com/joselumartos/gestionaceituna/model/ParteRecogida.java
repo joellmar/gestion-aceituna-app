@@ -1,11 +1,15 @@
 package com.joselumartos.gestionaceituna.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "partes_recogida")
+@NoArgsConstructor
+@Getter
+@Setter
 public class ParteRecogida {
 
     @Id
@@ -31,18 +35,31 @@ public class ParteRecogida {
     )
     private double rendimientoEstimado;
 
+    @Lob
     @Column(
             name = "observaciones",
             length = 500
     )
     private String observaciones;
 
-    @Transient
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            optional = false,
+            fetch = FetchType.LAZY
+    )
     private Almazara almazara;
 
-    @Transient
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            optional = false,
+            fetch = FetchType.LAZY
+    )
     private Finca finca;
 
-    @Transient
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            optional = false,
+            fetch = FetchType.LAZY
+    )
     private Cuadrilla cuadrilla;
 }

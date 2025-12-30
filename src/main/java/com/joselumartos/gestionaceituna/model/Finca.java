@@ -1,11 +1,15 @@
 package com.joselumartos.gestionaceituna.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Table(name = "fincas")
+@NoArgsConstructor
+@Getter
+@Setter
 public class Finca {
 
     @Id
@@ -42,9 +46,9 @@ public class Finca {
     @Column(name = "activa_campaña")
     private boolean activaCampaña;
 
-    @Transient
+    @OneToMany(mappedBy = "finca")
     private List<ParteRecogida> partesRecogida;
 
-    @Transient
+    @ManyToMany
     private List<Cuadrilla> cuadrillas;
 }

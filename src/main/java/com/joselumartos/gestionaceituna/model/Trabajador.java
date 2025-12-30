@@ -1,11 +1,15 @@
 package com.joselumartos.gestionaceituna.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Table(name = "trabajadores")
+@NoArgsConstructor
+@Getter
+@Setter
 public class Trabajador {
 
     @Id
@@ -43,6 +47,6 @@ public class Trabajador {
     @Column(name = "activo")
     private boolean activo;
 
-    @Transient
+    @ManyToMany
     private List<Cuadrilla> cuadrillas;
 }
