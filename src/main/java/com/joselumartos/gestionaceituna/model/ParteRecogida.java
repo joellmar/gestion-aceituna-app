@@ -47,6 +47,8 @@ public class ParteRecogida {
             optional = false,
             fetch = FetchType.LAZY
     )
+    @JoinColumn(
+            name = "almazara_id")
     private Almazara almazara;
 
     @ManyToOne(
@@ -54,6 +56,8 @@ public class ParteRecogida {
             optional = false,
             fetch = FetchType.LAZY
     )
+    @JoinColumn(
+            name = "finca_id")
     private Finca finca;
 
     @ManyToOne(
@@ -61,5 +65,7 @@ public class ParteRecogida {
             optional = false,
             fetch = FetchType.LAZY
     )
+    @JoinColumn(
+            name = "cuadrilla_id")
     private Cuadrilla cuadrilla;
 }

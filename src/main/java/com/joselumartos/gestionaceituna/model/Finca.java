@@ -49,6 +49,6 @@ public class Finca {
     @OneToMany(mappedBy = "finca")
     private List<ParteRecogida> partesRecogida;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "fincas")
     private List<Cuadrilla> cuadrillas;
 }

@@ -40,9 +40,23 @@ public class Cuadrilla {
     @OneToMany(mappedBy = "cuadrilla")
     private List<ParteRecogida> partesRecogida;
 
-    @ManyToMany
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL
+    )
+    @JoinTable(
+            name = "cuadrillas_fincas",
+            joinColumns = @JoinColumn(
+                    name = "cuadrilla_id",
+                    referencedColumnName = "id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "finca_id",
+                    referencedColumnName = "id"
+            )
+    )
     private List<Finca> fincas;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "cuadrillas")
     private List<Trabajador> trabajadores;
 }

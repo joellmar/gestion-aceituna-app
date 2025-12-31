@@ -47,6 +47,20 @@ public class Trabajador {
     @Column(name = "activo")
     private boolean activo;
 
-    @ManyToMany
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL
+    )
+    @JoinTable(
+            name = "trabajadores_cuadrillas",
+            joinColumns = @JoinColumn(
+                    name = "trabajador_id",
+                    referencedColumnName = "id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "cuadrilla_id",
+                    referencedColumnName = "id"
+            )
+    )
     private List<Cuadrilla> cuadrillas;
 }
