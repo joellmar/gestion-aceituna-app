@@ -8,8 +8,10 @@ import java.util.List;
 @Entity
 @Table(name = "cuadrillas")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Cuadrilla {
 
     @Id
@@ -47,12 +49,10 @@ public class Cuadrilla {
     @JoinTable(
             name = "cuadrillas_fincas",
             joinColumns = @JoinColumn(
-                    name = "cuadrilla_id",
-                    referencedColumnName = "id"
+                    name = "cuadrilla_id"
             ),
             inverseJoinColumns = @JoinColumn(
-                    name = "finca_id",
-                    referencedColumnName = "id"
+                    name = "finca_id"
             )
     )
     private List<Finca> fincas;

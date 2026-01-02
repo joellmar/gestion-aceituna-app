@@ -8,8 +8,10 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "partes_recogida")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class ParteRecogida {
 
     @Id

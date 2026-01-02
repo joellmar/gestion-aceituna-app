@@ -8,8 +8,10 @@ import java.util.List;
 @Entity
 @Table(name = "almazaras")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Almazara {
 
     @Id
@@ -39,5 +41,6 @@ public class Almazara {
     private int capacidadToneladasDiarias;
 
     @OneToMany(mappedBy = "almazara")
+    @ToString.Exclude
     private List<ParteRecogida> partesRecogida;
 }

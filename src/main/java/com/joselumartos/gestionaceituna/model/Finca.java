@@ -8,8 +8,10 @@ import java.util.List;
 @Entity
 @Table(name = "fincas")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Finca {
 
     @Id
