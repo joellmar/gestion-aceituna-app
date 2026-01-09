@@ -16,7 +16,7 @@ public class ParteRecogida {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
 
     @Column(
@@ -29,13 +29,13 @@ public class ParteRecogida {
             name = "kilos_recogidos",
             precision = 2
     )
-    private double kilosRecogidos;
+    private Double kilosRecogidos;
 
     @Column(
             name = "rendimiento_estimado",
             precision = 2
     )
-    private double rendimientoEstimado;
+    private Double rendimientoEstimado;
 
     @Lob
     @Column(
@@ -45,7 +45,6 @@ public class ParteRecogida {
     private String observaciones;
 
     @ManyToOne(
-            cascade = CascadeType.ALL,
             optional = false,
             fetch = FetchType.LAZY
     )
@@ -54,7 +53,6 @@ public class ParteRecogida {
     private Almazara almazara;
 
     @ManyToOne(
-            cascade = CascadeType.ALL,
             optional = false,
             fetch = FetchType.LAZY
     )
@@ -63,7 +61,6 @@ public class ParteRecogida {
     private Finca finca;
 
     @ManyToOne(
-            cascade = CascadeType.ALL,
             optional = false,
             fetch = FetchType.LAZY
     )

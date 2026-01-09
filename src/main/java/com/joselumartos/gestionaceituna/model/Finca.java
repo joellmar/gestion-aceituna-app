@@ -16,7 +16,7 @@ public class Finca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(
             name = "nombre",
@@ -37,7 +37,7 @@ public class Finca {
             name = "extension_hectareas",
             precision = 2
     )
-    private double extensionHectareas;
+    private Double extensionHectareas;
 
     @Column(
             name = "variedad_aceituna",
@@ -46,10 +46,7 @@ public class Finca {
     private String variedadAceituna;
 
     @Column(name = "activa_campaña")
-    private boolean activaCampaña;
-
-    @OneToMany(mappedBy = "finca")
-    private List<ParteRecogida> partesRecogida;
+    private Boolean activaCampaña;
 
     @ManyToMany(mappedBy = "fincas")
     private List<Cuadrilla> cuadrillas;

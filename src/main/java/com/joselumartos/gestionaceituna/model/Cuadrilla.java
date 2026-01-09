@@ -16,7 +16,7 @@ public class Cuadrilla {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(
             name = "nombre",
@@ -34,17 +34,13 @@ public class Cuadrilla {
     private String responsable;
 
     @Column(name = "numero_maximo_trabajadores")
-    private int numeroMaximoTrabajadores;
+    private Integer numeroMaximoTrabajadores;
 
     @Column(name = "activa")
-    private boolean activa;
-
-    @OneToMany(mappedBy = "cuadrilla")
-    private List<ParteRecogida> partesRecogida;
+    private Boolean activa;
 
     @ManyToMany(
-            fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL
+            fetch = FetchType.LAZY
     )
     @JoinTable(
             name = "cuadrillas_fincas",

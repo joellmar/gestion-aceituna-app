@@ -16,7 +16,7 @@ public class Trabajador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(
             name = "nombre",
@@ -47,11 +47,10 @@ public class Trabajador {
     private String categoriaProfesional;
 
     @Column(name = "activo")
-    private boolean activo;
+    private Boolean activo;
 
     @ManyToMany(
-            fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL
+            fetch = FetchType.LAZY
     )
     @JoinTable(
             name = "trabajadores_cuadrillas",

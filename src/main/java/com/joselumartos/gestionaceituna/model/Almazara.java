@@ -16,7 +16,7 @@ public class Almazara {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "nombre",
             length = 100,
@@ -38,9 +38,5 @@ public class Almazara {
     private String telefono;
 
     @Column(name = "capacidad_toneladas_diarias")
-    private int capacidadToneladasDiarias;
-
-    @OneToMany(mappedBy = "almazara")
-    @ToString.Exclude
-    private List<ParteRecogida> partesRecogida;
+    private Integer capacidadToneladasDiarias;
 }
