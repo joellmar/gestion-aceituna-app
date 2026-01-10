@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista</title>
+</head>
+<body>
+    <table>
+        <tr th:each="a : ${almazaras.content}">
+            <td th:text="${a.nombre}">Nombre</td>
+            <td>
+                <a th:href="@{/almazaras/editar/{id}(id=${a.id})}">Editar</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

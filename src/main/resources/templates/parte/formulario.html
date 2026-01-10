@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+  </head>
+  <body>
+    <form th:action="@{/partes/guardar}" th:object="${parte}" method="post">
+      <label>Fecha:</label>
+      <input type="date" th:field="*{fecha}" />
+      <p th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></p>
+
+      <label>Finca:</label>
+      <select th:field="*{fincaId}">
+        <option th:each="f : ${fincas}" th:value="${f.id}" th:text="${f.nombre}"></option>
+      </select>
+
+      <label>Almazara:</label>
+      <select th:field="*{almazaraId}">
+        <option th:each="a : ${almazaras}" th:value="${a.id}" th:text="${a.nombre}"></option>
+      </select>
+
+      <label>Cuadrilla:</label>
+      <select th:field="*{cuadrillaId}">
+        <option th:each="c : ${cuadrillas}" th:value="${c.id}" th:text="${c.nombre}"></option>
+      </select>
+
+      <button type="submit">Guardar Parte</button>
+    </form>
+  </body>
+</html>
